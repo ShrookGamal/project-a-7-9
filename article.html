@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title id="pageTitle">جاري التحميل... | الصالح لتنسيق الحدائق</title>
+<meta name="robots" content="index, follow">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+:root{
+  --bg-deep:#0E2418;
+  --bg-deep-2:#173C29;
+  --pine:#0A1B12;
+  --leaf:#4EAE64;
+  --leaf-light:#A6DDAE;
+  --moss:#245239;
+  --olive:#8CA35C;
+  --cream:#F6F2E5;
+  --text-dark:#12201A;
+  --ff-display:'El Messiri', serif;
+  --ff-body:'Tajawal', sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --header-h:76px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:#fff;
+  color:var(--text-dark);
+  font-family:var(--ff-body);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{margin:0;padding:0;}
+svg{width:1.1em;height:1.1em;fill:currentColor;flex-shrink:0;}
+
+.container{
+  width:100%;
+  max-width:900px;
+  margin-inline:auto;
+  padding-inline:clamp(1rem,4vw,2rem);
+}
+.art-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  height:var(--header-h);
+  display:flex;
+  align-items:center;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(12px) saturate(140%);
+  border-bottom:1px solid rgba(36,82,57,.1);
+}
+.art-header-inner{
+  width:100%;
+  max-width:1100px;
+  margin-inline:auto;
+  padding-inline:clamp(1rem,4vw,2rem);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.art-brand{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+}
+.art-brand-logo{
+  width:42px;height:42px;
+  border-radius:50%;
+  object-fit:contain;
+  background:rgba(36,82,57,.08);
+  padding:4px;
+}
+.art-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.art-brand-name{
+  font-family:var(--ff-display);
+  font-weight:700;
+  font-size:1.05rem;
+  color:var(--bg-deep);
+}
+.art-brand-tagline{font-size:.68rem;color:var(--moss);margin-top:2px;}
+
+.art-back{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.6rem 1.1rem;
+  border-radius:999px;
+  background:var(--bg-deep);
+  color:var(--cream);
+  font-weight:700;
+  font-size:.85rem;
+  box-shadow:0 8px 20px rgba(14,36,24,.22);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+}
+.art-back svg{width:16px;height:16px;transition:transform .35s var(--ease);}
+.art-back:hover{
+  background:var(--moss);
+  transform:translateY(-2px);
+  box-shadow:0 12px 26px rgba(14,36,24,.3);
+}
+.art-back:hover svg{transform:translateX(4px);}
+.read-progress{
+  position:fixed;
+  top:var(--header-h);
+  right:0;
+  left:0;
+  height:3px;
+  z-index:60;
+  background:transparent;
+}
+.read-progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--leaf),var(--leaf-light));
+  transition:width .1s linear;
+}
+.art-hero{
+  position:relative;
+  padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(2rem,4vw,3rem);
+  overflow:hidden;
+  isolation:isolate;
+  background:linear-gradient(180deg, #F1F7F2 0%, #ffffff 100%);
+}
+.art-hero::before{
+  content:'';
+  position:absolute;
+  z-index:-1;
+  top:-160px;left:-140px;
+  width:420px;height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(166,221,174,.4), transparent 70%);
+}
+.art-hero-in{opacity:0;transform:translateY(24px);animation:artIn .8s var(--ease) forwards;}
+.art-hero-in:nth-child(2){animation-delay:.1s;}
+.art-hero-in:nth-child(3){animation-delay:.2s;}
+.art-hero-in:nth-child(4){animation-delay:.3s;}
+
+.art-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.4rem 1.05rem;
+  border-radius:999px;
+  background:rgba(78,174,100,.14);
+  color:var(--moss);
+  font-weight:700;
+  font-size:.85rem;
+  margin-bottom:1.2rem;
+}
+.art-tag::before{
+  content:'';
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--leaf);
+}
+
+.art-title{
+  margin:0 0 1.3rem;
+  font-family:var(--ff-display);
+  font-weight:700;
+  font-size:clamp(1.9rem,4.2vw,3rem);
+  line-height:1.4;
+  color:var(--bg-deep);
+}
+
+.art-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.4rem;
+  margin-bottom:1.8rem;
+  padding-bottom:1.8rem;
+  border-bottom:1px dashed rgba(36,82,57,.25);
+}
+.art-meta-item{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:.88rem;
+  font-weight:600;
+  color:#5a6a61;
+}
+.art-meta-item svg{width:17px;height:17px;fill:var(--leaf);}
+
+.art-cover{
+  position:relative;
+  aspect-ratio:16/8;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 26px 60px rgba(23,60,41,.2);
+  background:
+    linear-gradient(135deg, rgba(78,174,100,.32), rgba(36,82,57,.6)),
+    var(--leaf-light);
+}
+.art-cover img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.art-body{
+  padding:clamp(2.5rem,5vw,4rem) 0 clamp(4rem,8vw,6rem);
+}
+.art-content{
+  max-width:760px;
+  margin-inline:auto;
+  font-size:clamp(1rem,1.1vw,1.08rem);
+}
+
+.art-content > *{
+  opacity:0;
+  transform:translateY(20px);
+}
+.art-content > *.is-in{
+  opacity:1;
+  transform:none;
+  transition:opacity .8s var(--ease), transform .8s var(--ease);
+}
+
+.art-content p{
+  margin:0 0 1.4rem;
+  line-height:2.1;
+  color:#374840;
+}
+.art-content h2{
+  margin:2.6rem 0 1.2rem;
+  font-family:var(--ff-display);
+  font-weight:700;
+  font-size:clamp(1.35rem,2.4vw,1.75rem);
+  color:var(--bg-deep);
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+}
+.art-content h2::before{
+  content:'';
+  width:6px;
+  height:1.5em;
+  border-radius:4px;
+  background:linear-gradient(180deg,var(--leaf-light),var(--leaf));
+  flex-shrink:0;
+}
+.art-content h3{
+  margin:1.8rem 0 1rem;
+  font-family:var(--ff-display);
+  font-weight:600;
+  font-size:1.2rem;
+  color:var(--moss);
+}
+
+.art-content ul.art-list{
+  margin:0 0 1.6rem;
+  display:grid;
+  gap:.8rem;
+}
+.art-content ul.art-list li{
+  position:relative;
+  padding-right:2rem;
+  line-height:1.85;
+  color:#2c3a33;
+  font-weight:500;
+}
+.art-content ul.art-list li::before{
+  content:'';
+  position:absolute;
+  right:0;top:.32em;
+  width:1.15rem;height:1.15rem;
+  border-radius:50%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230A1B12' d='m9.5 16.6-4.1-4.1L4 13.9l5.5 5.5L20.4 8.5 19 7.1z'/%3E%3C/svg%3E") center/68% no-repeat,
+    linear-gradient(135deg,var(--leaf-light),var(--leaf));
+}
+
+.art-callout{
+  display:flex;
+  gap:1rem;
+  margin:2rem 0;
+  padding:1.4rem 1.6rem;
+  border-radius:20px;
+  background:#F1F7F2;
+  border-inline-start:4px solid var(--leaf);
+}
+.art-callout-icon{
+  flex-shrink:0;
+  width:38px;height:38px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--leaf-light),var(--leaf));
+}
+.art-callout-icon svg{width:20px;height:20px;fill:var(--pine);}
+.art-callout p{margin:0;color:#2c3a33;line-height:1.9;font-weight:500;}
+.art-callout strong{display:block;margin-bottom:.3rem;color:var(--moss);font-family:var(--ff-display);font-size:1.05rem;}
+
+.art-quote{
+  margin:2.2rem 0;
+  padding:1.8rem 2rem;
+  border-radius:22px;
+  background:linear-gradient(135deg,var(--bg-deep-2),var(--bg-deep));
+  color:var(--cream);
+  position:relative;
+  overflow:hidden;
+}
+.art-quote::before{
+  content:'”';
+  position:absolute;
+  top:-.5rem;left:1rem;
+  font-family:var(--ff-display);
+  font-size:6rem;
+  color:rgba(246,242,229,.1);
+  line-height:1;
+}
+.art-quote p{
+  position:relative;
+  margin:0;
+  font-family:var(--ff-display);
+  font-size:1.15rem;
+  line-height:1.9;
+  color:var(--leaf-light);
+}
+.art-cta{
+  margin-top:3rem;
+  padding:clamp(1.8rem,3.5vw,2.6rem);
+  border-radius:28px;
+  text-align:center;
+  background:#F1F7F2;
+  border:1px solid rgba(36,82,57,.1);
+}
+.art-cta h3{
+  margin:0 0 .6rem;
+  font-family:var(--ff-display);
+  font-size:clamp(1.25rem,2.2vw,1.6rem);
+  color:var(--bg-deep);
+}
+.art-cta p{margin:0 0 1.4rem;color:#4a5a51;}
+.art-cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;}
+.art-cta-btn{
+  padding:.9rem 1.8rem;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.92rem;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.art-cta-primary{
+  background:linear-gradient(135deg,var(--leaf-light),var(--leaf));
+  color:var(--pine);
+  box-shadow:0 12px 26px rgba(78,174,100,.3);
+}
+.art-cta-outline{
+  border:1.5px solid var(--moss);
+  color:var(--moss);
+}
+.art-cta-btn:hover{transform:translateY(-3px);}
+.art-related{
+  padding:clamp(3rem,6vw,4.5rem) 0 clamp(4rem,8vw,6rem);
+  background:#F1F7F2;
+}
+.art-related h3{
+  text-align:center;
+  margin:0 0 2rem;
+  font-family:var(--ff-display);
+  font-size:clamp(1.4rem,2.6vw,1.9rem);
+  color:var(--bg-deep);
+}
+.art-related-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;
+}
+.art-related-card{
+  display:block;
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 14px 30px rgba(23,60,41,.1);
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease);
+}
+.art-related-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(23,60,41,.18);}
+.art-related-img{
+  position:relative;
+  aspect-ratio:16/10;
+  background:linear-gradient(135deg, rgba(78,174,100,.3), rgba(36,82,57,.55)), var(--leaf-light);
+  overflow:hidden;
+}
+.art-related-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.art-related-body{padding:1.1rem 1.2rem 1.3rem;}
+.art-related-body span{
+  display:inline-block;
+  margin-bottom:.5rem;
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--moss);
+}
+.art-related-body h4{
+  margin:0;
+  font-family:var(--ff-display);
+  font-size:1rem;
+  line-height:1.6;
+  color:var(--bg-deep);
+}
+.art-related-card.is-current{display:none;}
+.art-footer{
+  padding:2rem 0;
+  text-align:center;
+  background:var(--bg-deep);
+  color:rgba(246,242,229,.7);
+  font-size:.85rem;
+}
+.art-footer a{color:var(--leaf-light);font-weight:600;}
+
+@keyframes artIn{
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:none;}
+}
+
+@media (max-width:900px){
+  .art-related-grid{grid-template-columns:1fr;}
+}
+@media (max-width:600px){
+  .art-brand-tagline{display:none;}
+  .art-back span{display:none;}
+  .art-back{padding:.6rem;width:38px;height:38px;justify-content:center;}
+  .art-title{font-size:1.6rem;}
+  .art-meta{gap:.9rem;}
+  .art-cover{aspect-ratio:4/3;}
+  .art-callout{flex-direction:column;}
+}
+@media (prefers-reduced-motion:reduce){
+  .art-hero-in,.art-content > *{opacity:1;transform:none;animation:none;transition:none;}
+  .read-progress-bar{transition:none;}
+  .art-related-card,.art-cta-btn,.art-back{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="art-header">
+  <div class="art-header-inner">
+    <a href="index.html" class="art-brand">
+      <img src="images/logo.png" alt="شعار الصالح لتنسيق الحدائق" class="art-brand-logo">
+      <span class="art-brand-text">
+        <span class="art-brand-name">الصالح</span>
+        <span class="art-brand-tagline">لتنسيق الحدائق</span>
+      </span>
+    </a>
+    <a href="index.html" class="art-back">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg>
+      <span>العودة للرئيسية</span>
+    </a>
+  </div>
+</header>
+
+<div class="read-progress"><div class="read-progress-bar" id="readBar"></div></div>
+
+<main>
+  <section class="art-hero">
+    <div class="container">
+      <p class="art-tag art-hero-in" id="artTag">القسم</p>
+      <h1 class="art-title art-hero-in" id="artTitle">جاري تحميل المقال...</h1>
+
+      <div class="art-meta art-hero-in">
+        <span class="art-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7ZM5 9h14v11H5V9Z"/></svg>
+          <span id="artDate">—</span>
+        </span>
+        <span class="art-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5v6l4.5 2.7-.8 1.3L11 13V7h2Z"/></svg>
+          <span id="artRead">—</span>
+        </span>
+        <span class="art-meta-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2c-4.4 0-8 3.6-8 8 0 5.4 7 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
+          <span>المنفوحة، الرياض</span>
+        </span>
+      </div>
+
+      <div class="art-cover art-hero-in">
+        <img src="" alt="" id="artCoverImg" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </section>
+
+  <section class="art-body">
+    <div class="container">
+      <article class="art-content" id="artContent">
+      </article>
+    </div>
+  </section>
+
+  <section class="art-related">
+    <div class="container">
+      <h3>مقالات قد تهمك أيضًا</h3>
+      <div class="art-related-grid" id="artRelated">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="art-footer">
+  <p>© 2026 الصالح لتنسيق الحدائق — جميع الحقوق محفوظة. <a href="index.html">العودة للموقع الرئيسي</a></p>
+</footer>
+
+<script>
+(function(){
+  var articles = {
+
+    "design": {
+      tag: "تصميم وتنفيذ",
+      title: "خطوات تصميم حديقة منزلية تناسب ذوقك ومساحتك",
+      date: "ديسمبر 2025",
+      read: "٦ دقائق قراءة",
+      cover: "images/serv1.png",
+      html: [
+        {p:"عندما يفكر أغلب الناس في حديقة منزلهم، يقفز إلى أذهانهم مباشرة سؤال: أي أشجار سنزرع؟ وأي عشب سنفرش؟ لكن الحقيقة أن الحديقة الناجحة التي تدوم جمالًا لسنوات لا تبدأ من النبات، بل تبدأ من فكرة وتصميم مدروس يسبق أي عملية زراعة أو تركيب. في هذا المقال نأخذكم معنا في رحلة تصميم الحديقة المنزلية خطوة بخطوة، كما نمارسها فعليًا مع عملائنا في المنفوحة والرياض."},
+
+        {h2:"لماذا يبدأ كل شيء بالتصميم لا بالزراعة؟"},
+        {p:"كثير من أصحاب المنازل يقعون في فخ التنفيذ العشوائي: يشترون بعض الشتلات، يفرشون قطعة عشب هنا، ويضيفون مقعدًا هناك، دون أن تكون هناك رؤية شاملة تربط كل هذه العناصر ببعضها. النتيجة غالبًا حديقة تبدو مبعثرة، فيها تضارب في الأحجام والألوان، وأحيانًا نباتات تموت بعد أشهر لأنها زُرعت في مكان لا يناسبها."},
+        {p:"التصميم المسبق يحل هذه المشكلة من جذورها؛ فهو يمنحكم خريطة واضحة لكل متر في الحديقة قبل أن تُحرَّك فيه فأس أو تُغرس فيه شتلة، ويجعل كل قرار لاحق - سواء في الزراعة أو التركيبات أو الإضاءة - مبنيًا على تصور متكامل لا على ردة فعل لحظية."},
+
+        {h2:"الخطوة الأولى: المعاينة وفهم المساحة"},
+        {p:"نبدأ دائمًا بزيارة الموقع فعليًا، لأن الصور والأوصاف مهما دقّت لا تغني عن الوقوف في المكان نفسه. في هذه الزيارة نقيس المساحة بدقة، وندرس شكل الأرض إن كانت منتظمة أو غير منتظمة، ونلاحظ اتجاه الشمس خلال اليوم لنعرف أي الأركان مشمسة طوال الوقت وأيها في الظل، وندرس اتجاه الرياح السائدة، ونفحص نوع التربة وقوامها ومدى احتفاظها بالماء."},
+        {p:"كل هذه التفاصيل الصغيرة تؤثر بشكل مباشر على اختيار النباتات لاحقًا؛ فشجرة تحتاج شمسًا كاملة لن تزدهر أبدًا في ركن مظلل طوال اليوم، ونبات يحب التربة الرملية سريعة الصرف قد يتعفن في تربة طينية تحتفظ بالماء لفترة طويلة."},
+
+        {h2:"الخطوة الثانية: فهم أسلوب حياتكم واحتياجكم"},
+        {p:"الحديقة في النهاية مساحة لكم أنتم، ولذلك نجلس مع كل عميل ونسأل أسئلة قد تبدو بسيطة لكنها تُحدث فرقًا كبيرًا في التصميم النهائي: هل الحديقة مخصصة لجلسات عائلية مسائية؟ هل يوجد أطفال يحتاجون مساحة آمنة للعب؟ هل تريدون ركنًا للشواء أو القهوة الصباحية؟ هل الأولوية للخصوصية عن الجيران أم للانفتاح على المنظر؟"},
+        {p:"إجابات هذه الأسئلة توجّه توزيع المساحة بالكامل. فالحديقة التي يقضي فيها الأطفال معظم وقتهم تحتاج مسطحات عشبية واسعة وآمنة بعيدًا عن أي عناصر حادة، بينما الحديقة المخصصة للجلسات الهادئة قد تحتاج مساحة أصغر للعشب وتركيزًا أكبر على النباتات العطرية والإضاءة الدافئة."},
+
+        {h2:"الخطوة الثالثة: توزيع العناصر على الورق"},
+        {p:"بعد جمع كل المعطيات، نضع مخططًا أوليًا يوزّع العناصر الرئيسية: أين الممرات، وأين المسطح الأخضر، وأين تُزرع الأشجار الكبيرة التي تحتاج مساحة نمو، وأين تكون الأحواض والزهور، وأين مكان الجلسة أو المظلة إن وُجدت. نحرص في هذه المرحلة على تحقيق توازن بصري؛ فلا تتكدس العناصر في جهة وتُترك الأخرى فارغة، ولا تتقارب الأشجار بشكل يعيق نموها مستقبلًا."},
+
+        {list:[
+          "تحديد مسارات الحركة الرئيسية قبل أي شيء آخر",
+          "ترك مساحة كافية لنمو الأشجار والشجيرات مستقبلًا",
+          "تجميع النباتات المتشابهة في احتياج الري والشمس معًا",
+          "موازنة الألوان بين درجات الأخضر والزهور الملونة",
+          "التفكير في المنظر من نوافذ المنزل لا من الحديقة فقط"
+        ]},
+
+        {callout:{
+          title:"نصيحة من فريقنا",
+          text:"لا تستعجلي مرحلة التصميم مهما كانت الرغبة في رؤية النتيجة سريعًا. كل ساعة تُقضى في التخطيط الجيد توفر أيامًا من إعادة الزراعة أو النقل لاحقًا، وتمنحكِ حديقة متناسقة من أول يوم بدل أن تتغير ملامحها كل فترة."
+        }},
+
+        {h2:"الخطوة الرابعة: اختيار النباتات المناسبة للمناخ"},
+        {p:"الرياض بيئة صحراوية حارة صيفًا وباردة نسبيًا شتاءً، وهذا يفرض علينا اختيار نباتات تتحمل هذا التذبذب وتتأقلم مع قلة الأمطار. نفضّل دائمًا مزيجًا من النباتات المحلية والمتأقلمة على النباتات الدخيلة التي تحتاج عناية مكثفة لا تناسب أغلب الأسر المشغولة. اختيار النبات الصحيح منذ البداية يقلل استهلاك المياه ويقلل الحاجة إلى استبدال النباتات الميتة بشكل متكرر."},
+
+        {h2:"الخطوة الخامسة: التنفيذ الفعلي على الأرض"},
+        {p:"بعد اعتماد التصميم معكم، ينتقل فريقنا إلى التنفيذ الفعلي: تجهيز التربة وتحسينها، شق مسارات الري، تنفيذ الممرات والأرضيات، زراعة الأشجار والشجيرات وفق المخطط المتفق عليه، وأخيرًا فرش العشب أو تركيب أي عناصر إضافية كالمظلات أو الإضاءة. نحرص طوال هذه المرحلة على المتابعة الدقيقة والتواصل معكم عند أي تفصيلة تحتاج قرارًا منكم."},
+
+        {quote:{text:"الحديقة الجميلة ليست تلك التي تحتوي أكبر عدد من النباتات، بل تلك التي وُضع فيها كل عنصر في مكانه الصحيح لسبب واضح."}},
+
+        {h2:"ماذا عن الحدائق الصغيرة أو الأسطح؟"},
+        {p:"مبدأ التصميم المدروس لا يقتصر على الفلل الكبيرة؛ فالحدائق الصغيرة والأسطح والشرفات تحتاج تخطيطًا أدق لأن هامش الخطأ فيها أضيق. هنا يصبح التركيز على الارتفاع بدلًا من المساحة الأفقية عبر الأصص المعلقة والنباتات المتسلقة، واستخدام مرايا أو أسطح عاكسة لخلق إحساس بالاتساع، واختيار عدد محدود من العناصر بدل حشو المساحة بكل شيء."},
+
+        {h2:"خلاصة"},
+        {p:"تصميم الحديقة رحلة تبدأ بالفهم قبل أن تنتهي بالتنفيذ، وكل خطوة فيها - من المعاينة إلى اختيار النبات - تصب في هدف واحد: مساحة خارجية تشعرون فيها بالراحة والانتماء كل يوم، لا مجرد أرض خضراء. إن كنتم تفكرون في البدء بمشروع حديقتكم، فالخطوة الأولى بسيطة: تواصلوا معنا وسنبدأ معًا بزيارة ميدانية نفهم فيها مساحتكم واحتياجكم."}
+      ]
+    },
+
+    "artificial-grass": {
+      tag: "أعشاب",
+      title: "الثيل الصناعي أم الطبيعي؟ دليلك الكامل للاختيار الصح",
+      date: "ديسمبر 2026",
+      read: "٧ دقائق قراءة",
+      cover: "images/serv2.png",
+      html: [
+        {p:"من أكثر الأسئلة التي تصلنا من عملائنا: أختار الثيل الطبيعي أم الصناعي؟ ولا توجد إجابة واحدة تناسب الجميع، لأن القرار يعتمد على عوامل متعددة: طريقة استخدام الحديقة، الوقت المتاح للعناية، الميزانية، وحتى الذوق الشخصي في الملمس والرائحة. في هذا المقال نضع أمامكم الصورة كاملة لتختاروا بثقة ووعي، لا بمجرد تقليد الجيران أو اتباع موضة سائدة."},
+
+        {h2:"الثيل الطبيعي: الجمال الحي الذي يحتاج رعاية"},
+        {p:"لا شيء يضاهي إحساس العشب الطبيعي الحقيقي تحت القدمين، أو رائحته المميزة بعد القص أو بعد المطر. الثيل الطبيعي كائن حي ينمو ويتنفس، وهذا بالضبط ما يمنحه سحره الخاص، لكنه أيضًا سبب احتياجه الدائم للعناية: ري منتظم خصوصًا في أشهر الصيف الحارة، قص دوري للحفاظ على ارتفاعه المثالي، تسميد موسمي، ومعالجة أي بقع صفراء أو أمراض فطرية قد تظهر."},
+        {p:"يناسب الثيل الطبيعي بشكل خاص العائلات التي تقضي وقتًا طويلاً في الحديقة، ولديها وقت أو ميزانية لصيانة دورية، وتقدّر الإحساس الحي والمتجدد الذي يمنحه العشب الحقيقي مع تغير الفصول."},
+
+        {h2:"الثيل الصناعي: الحل العملي بلا مجهود"},
+        {p:"في المقابل، طوّرت الصناعة اليوم أنواعًا من الثيل الصناعي شديدة الشبه بالعشب الحقيقي، سواء في اللون أو الملمس أو حتى طريقة انعكاس الضوء عليها. أكبر ميزة فيه أنه يبقى أخضر ومرتبًا على مدار العام بغض النظر عن الطقس، دون حاجة للري أو القص أو مكافحة الآفات، وهذا يجعله خيارًا مثاليًا لمن لا يملك الوقت الكافي للعناية اليومية، أو لمن سبق وواجه مشاكل في إنبات العشب الطبيعي بسبب طبيعة التربة أو قلة الشمس."},
+        {p:"كما أن الثيل الصناعي يوفر استهلاك المياه بشكل كبير، وهو عامل مهم في بيئة صحراوية كالرياض تشهد ارتفاعًا في درجات الحرارة معظم العام، ولا يترك بقايا طين أو وحل بعد الأمطار."},
+
+        {list:[
+          "لا يحتاج ريًا يوميًا أو أسبوعيًا",
+          "يبقى أخضر موحدًا في كل الفصول دون بقع صفراء",
+          "لا يحتاج قصًا أو تسميدًا أو مبيدات",
+          "مناسب لملاعب الأطفال بفضل نعومته وثباته",
+          "يوفر استهلاك المياه بشكل ملحوظ على المدى الطويل"
+        ]},
+
+        {h2:"عوامل يجب موازنتها قبل القرار"},
+        {p:"القرار الصحيح لا يُبنى على ميزة واحدة، بل على موازنة بين عدة عوامل تخص وضعكم تحديدًا. أولها كثافة الاستخدام: هل الحديقة مخصصة للعب يومي مكثف للأطفال أم لجلسات متفرقة؟ الثيل الصناعي الجيد يتحمل الاستخدام المكثف دون أن يتلف، بينما الطبيعي قد يحتاج فترات راحة ليتعافى. ثانيها التعرض للشمس: بعض أنواع الثيل الطبيعي تحتاج شمسًا مباشرة لتزدهر، فإن كانت الحديقة مظللة معظم اليوم فقد يكون الصناعي أنسب."},
+        {p:"وثالث العوامل هو الميزانية على المدى الطويل لا القصير فقط؛ فالثيل الطبيعي غالبًا أقل تكلفة في التركيب الأولي لكنه يحمّلكم تكاليف صيانة مستمرة، بينما الثيل الصناعي قد يكون استثمارًا أعلى في البداية لكنه يوفر عليكم تكاليف الري والصيانة لسنوات قادمة."},
+
+        {callout:{
+          title:"هل يمكن الجمع بين النوعين؟",
+          text:"نعم، وهو حل شائع وذكي. يمكن استخدام الثيل الطبيعي في الأركان المشمسة التي يقضي فيها الأطفال وقتهم، والصناعي في الممرات أو الأركان الظليلة أو المساحات حول حمامات السباحة، فتجمعون بين جمال الطبيعي وعملية الصناعي في حديقة واحدة."
+        }},
+
+        {h2:"جودة التركيب لا تقل أهمية عن نوع الثيل"},
+        {p:"سواء اخترتم الطبيعي أو الصناعي، فإن جودة التركيب هي ما يحدد شكل ومتانة الحديقة فعليًا. الثيل الصناعي الرديء التركيب يظهر فيه تموّج أو فراغات بين القطع مع الوقت، بينما التركيب الاحترافي يبدأ بتسوية دقيقة للأرض وطبقة أساس مناسبة للصرف، ثم فرش الثيل وتثبيته ولحام وصلاته بإتقان حتى يبدو المسطح قطعة واحدة متجانسة."},
+        {p:"وبالمثل، فإن الثيل الطبيعي يحتاج تجهيزًا جيدًا للتربة وتحسينها قبل الزراعة لضمان تجذّر سليم ونمو متساوٍ، وليس مجرد فرش سريع فوق أرض غير مهيأة."},
+
+        {quote:{text:"الاختيار بين الطبيعي والصناعي ليس اختيار الأفضل مطلقًا، بل اختيار الأنسب لأسلوب حياتكم ووقتكم."}},
+
+        {h2:"خلاصة"},
+        {p:"لا يوجد خيار صحيح وآخر خاطئ بشكل مطلق بين الثيل الطبيعي والصناعي، بل خيار يناسبكم أكثر بناءً على استخدامكم للحديقة، والوقت المتاح لديكم، والمناخ المحيط. فريقنا يساعدكم في هذا القرار بعد معاينة حديقتكم فعليًا، ونقترح عليكم الحل الأنسب دون تحيز مسبق لنوع معين، لأن هدفنا حديقة تناسبكم أنتم لا حديقة تشبه غيركم."}
+      ]
+    },
+
+    "shades": {
+      tag: "ظل وحماية",
+      title: "لماذا تعتبر المظلات ضرورة لا رفاهية في صيف الرياض؟",
+      date: "ديسمبر 2026",
+      read: "٥ دقائق قراءة",
+      cover: "images/serv4.png",
+      html: [
+        {p:"في مدينة كالرياض تتجاوز فيها درجات الحرارة الأربعين مئوية لأشهر متتالية، لا تُعد المظلة مجرد عنصر ديكوري يضاف للحديقة، بل هي شرط أساسي لاستخدام المساحة الخارجية أصلًا. فبدون ظل مناسب، تتحول أجمل الحدائق إلى مساحة مهجورة نصف العام، لا يستطيع أحد الجلوس فيها من التاسعة صباحًا حتى غروب الشمس. في هذا المقال نستعرض معكم لماذا تُعتبر المظلة استثمارًا ذكيًا، وكيف تختارون النوع المناسب لمنزلكم."},
+
+        {h2:"الظل يعني استخدامًا فعليًا للمساحة لا مجرد امتلاكها"},
+        {p:"كثير من أصحاب المنازل يستثمرون في حديقة جميلة وجلسة أنيقة، لكنهم يكتشفون لاحقًا أنهم لا يستخدمونها إلا في أشهر معدودة من السنة بسبب الحرارة. المظلة تحل هذه المشكلة جذريًا؛ فهي تخفض درجة الحرارة تحتها بشكل ملموس مقارنة بالمساحة المكشوفة، وتحمي الجلسات والأثاث الخارجي من أشعة الشمس المباشرة التي تسرّع تلفه وبهتان ألوانه، وتحوّل الحديقة من مساحة موسمية إلى مساحة يمكن استخدامها معظم أوقات السنة."},
+
+        {h2:"أنواع المظلات وأين يناسب كل نوع"},
+        {p:"تختلف المظلات في شكلها وخامتها بحسب الاستخدام والموقع. المظلات المخروطية والهرمية تناسب الجلسات المركزية في وسط الحديقة وتمنح شكلًا جماليًا مميزًا يصبح نقطة جذب بصرية. المظلات المستقيمة أو المسطحة تناسب أكثر الممرات والمداخل ومظلات السيارات حيث الأولوية للتغطية الكاملة والعملية. وهناك أيضًا المظلات القابلة للطي أو التحريك، وهي خيار مرن لمن يريد التحكم في مساحة الظل حسب الوقت من اليوم."},
+
+        {list:[
+          "مظلات مخروطية وهرمية: للجلسات المركزية وتركز جمالي عالٍ",
+          "مظلات مستقيمة: لمظلات السيارات والممرات والمداخل",
+          "مظلات قابلة للطي: مرونة في التحكم بمساحة الظل",
+          "مظلات بأقمشة مقاومة للأشعة فوق البنفسجية والغبار",
+          "هياكل معدنية مقواة تتحمل الرياح القوية"
+        ]},
+
+        {h2:"معايير اختيار المظلة المناسبة"},
+        {p:"قبل اختيار أي مظلة، من المهم تحديد الغرض الأساسي منها: هل هي لحماية سيارة، أم لتظليل جلسة عائلية، أم لتغطية مسبح أو ممر؟ فكل استخدام له مقاس وارتفاع وشكل مناسب. كذلك يجب مراعاة اتجاه الشمس خلال اليوم لتحديد الزاوية والارتفاع الأمثل الذي يوفر أقصى تظليل في أوقات الذروة الحارة، لا في الصباح الباكر أو المساء فقط."},
+        {p:"عامل آخر مهم هو متانة الهيكل، فالرياض تشهد أحيانًا رياحًا قوية خصوصًا في فصل الربيع، لذلك نحرص دائمًا على استخدام هياكل معدنية مقواة وتثبيت محكم يضمن ثبات المظلة لسنوات طويلة دون الحاجة لصيانة متكررة أو استبدال."},
+
+        {callout:{
+          title:"نصيحة من فريقنا",
+          text:"اختاري لون قماش المظلة بما ينسجم مع واجهة منزلك ولون الجلسات المحيطة، فالمظلة ليست عنصر تظليل فقط بل عنصر ديكوري يُرى من الشارع ومن داخل المنزل أيضًا، وتناسقها مع باقي الألوان يرفع من الشكل العام للواجهة."
+        }},
+
+        {h2:"المظلة والحديقة: تكامل لا انفصال"},
+        {p:"من الأخطاء الشائعة التفكير في المظلة كعنصر منفصل يُضاف في آخر مراحل التنفيذ. المظلة الناجحة تُخطط لها منذ مرحلة تصميم الحديقة، لتتناسق مع موقع الجلسات والممرات والنباتات المحيطة، وتترك مساحة كافية حولها للنمو المستقبلي لأي أشجار مجاورة، ولا تحجب مسار الإضاءة أو تعيق حركة الري."},
+
+        {quote:{text:"في مناخ كالرياض، الظل ليس رفاهية بل هو ما يفصل بين حديقة تُستخدم فعليًا وأخرى تبقى صورة جميلة فقط."}},
+
+        {h2:"خلاصة"},
+        {p:"سواء كانت مظلة لحديقتكم أو لسيارتكم أو لمدخل بيتكم، فإن الاستثمار في مظلة عالية الجودة يعني استخدامًا حقيقيًا للمساحة الخارجية طوال العام، وحماية للأثاث والسيارات، ولمسة جمالية تكتمل بها واجهة المنزل. نساعدكم في اختيار الشكل والخامة والمقاس المناسب بعد معاينة موقعكم، لتحصلوا على مظلة تخدمكم لسنوات طويلة قادمة."}
+      ]
+    }
+
+  };
+  function buildContent(data){
+    var frag = document.createDocumentFragment();
+    data.html.forEach(function(block){
+      var el;
+      if(block.p){
+        el = document.createElement('p');
+        el.textContent = block.p;
+      } else if(block.h2){
+        el = document.createElement('h2');
+        el.textContent = block.h2;
+      } else if(block.h3){
+        el = document.createElement('h3');
+        el.textContent = block.h3;
+      } else if(block.list){
+        el = document.createElement('ul');
+        el.className = 'art-list';
+        block.list.forEach(function(item){
+          var li = document.createElement('li');
+          li.textContent = item;
+          el.appendChild(li);
+        });
+      } else if(block.callout){
+        el = document.createElement('div');
+        el.className = 'art-callout';
+        el.innerHTML =
+          '<span class="art-callout-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-2h2v2Zm0-4h-2V7h2v6Z"/></svg></span>' +
+          '<p><strong></strong></p>';
+        el.querySelector('strong').textContent = block.callout.title;
+        el.querySelector('p').appendChild(document.createTextNode(block.callout.text));
+      } else if(block.quote){
+        el = document.createElement('div');
+        el.className = 'art-quote';
+        var qp = document.createElement('p');
+        qp.textContent = block.quote.text;
+        el.appendChild(qp);
+      }
+      if(el) frag.appendChild(el);
+    });
+    return frag;
+  }
+
+  function buildRelated(currentId){
+    var grid = document.getElementById('artRelated');
+    Object.keys(articles).forEach(function(id){
+      var art = articles[id];
+      var a = document.createElement('a');
+      a.href = 'article.html?post=' + id;
+      a.className = 'art-related-card' + (id === currentId ? ' is-current' : '');
+      a.innerHTML =
+        '<div class="art-related-img"><img src="' + art.cover + '" alt="' + art.title + '" loading="lazy" onerror="this.style.display=\'none\'"></div>' +
+        '<div class="art-related-body"><span>' + art.tag + '</span><h4>' + art.title + '</h4></div>';
+      grid.appendChild(a);
+    });
+  }
+  function getParam(name){
+    var params = new URLSearchParams(window.location.search);
+    return params.get(name);
+  }
+
+  var postId = getParam('post');
+  var data = articles[postId];
+
+  if(!data){
+    var firstId = Object.keys(articles)[0];
+    postId = firstId;
+    data = articles[firstId];
+  }
+
+  document.getElementById('pageTitle').textContent = data.title + ' | الصالح لتنسيق الحدائق';
+  document.getElementById('artTag').textContent = data.tag;
+  document.getElementById('artTitle').textContent = data.title;
+  document.getElementById('artDate').textContent = data.date;
+  document.getElementById('artRead').textContent = data.read;
+
+  var coverImg = document.getElementById('artCoverImg');
+  coverImg.src = data.cover;
+  coverImg.alt = data.title;
+
+  document.getElementById('artContent').appendChild(buildContent(data));
+  buildRelated(postId);
+  var bar = document.getElementById('readBar');
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrolled = h.scrollTop;
+    var height = h.scrollHeight - h.clientHeight;
+    var pct = height > 0 ? (scrolled / height) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', function(){
+    window.requestAnimationFrame(updateProgress);
+  }, { passive:true });
+  updateProgress();
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var blocks = document.querySelectorAll('#artContent > *');
+  if(reduced || !('IntersectionObserver' in window)){
+    blocks.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    blocks.forEach(function(el){ io.observe(el); });
+  }
+
+})();
+</script>
+</body>
+</html>
